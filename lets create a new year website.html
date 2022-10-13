@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New year remaining time</title>
+    <style>
+        *{margin: 0;
+        padding: 0;
+    }
+    body{background-image: url('img/background/3.jpg');
+      background-repeat: no-repeat;
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      background-size: cover;}
+      .container  {
+        padding: 20px;
+        border-radius: 15px;
+        display:flex;
+        font-family: sans-serif;
+        color: white;
+        height: 30vh;
+        background:linear-gradient(rgb(84 143 16),rgb(82 137 18 / 22%))
+        }
+        #now{text-align: center;
+            margin:4vw ;
+        }
+        #spanTime{font-weight: bolder;}
+    h1{text-align: center;
+    position: absolute;
+    left: 41vw;
+    /* padding-bottom: 25px; */
+    margin-left: auto;
+    /* text-align: center; */
+    margin-right: auto;}
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <h1>New Year Eve</h1>
+    <div id="now" ><h2>Days</h2> <br><br><span id="spanTime" class="days">00</span></div>
+    <div id="now" ><h2>Hours</h2> <br><br><span id="spanTime" class="hours">00</span></div>
+    <div id="now" ><h2>Minute</h2> <br><br><span id="spanTime" class="minutes">00</span></div>
+    <div id="now" ><h2>Seconds </h2><br><br><span id="spanTime" class="seconds">00</span></div>
+    </div>
+    
+    <script>
+
+        const Days = document.querySelector('.days')
+        const Hours = document.querySelector('.hours')
+        const Minutes = document.querySelector('.minutes')
+        const Seconds = document.querySelector('.seconds')
+        const newYear = '1 jan 2023';
+
+        function countDown(){
+            const newYearDate = new Date(newYear);
+            const NowDAte = new Date();
+
+            const totalSeconds = (newYearDate-NowDAte)/1000;
+             
+            const days = Math.floor(totalSeconds/3600/24)
+         
+            const hours = Math.floor(totalSeconds/3600)%24;
+            
+            const minutes= Math.floor(totalSeconds/60)%60;
+            
+            const seconds= Math.floor(totalSeconds)%60;
+             
+
+            Days.innerHTML = days
+            Hours.innerHTML = hours
+            Minutes.innerHTML = minutes
+            Seconds.innerHTML = seconds
+           
+        };
+         
+        countDown()
+        setInterval(countDown,1000);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> id="options" question and answers class="answer"</title>
+    <style> *{padding:0;
+    margin: 0;
+}
+body{display: flex;
+flex-direction: column;
+height: 80vh;
+justify-content: center;
+align-items: center;
+background-color: rgb(152 0 255);}
+
+            ul li{list-style: none;}    
+            .container{
+                color: white;
+                height: 30vh auto;
+                border: 1px solid lightgrey;
+                padding: 20px;
+                background: linear-gradient(rgb(227 3 3 / 47%),rgb(0 114 255));
+                border-radius: 30px;
+            }
+            ul li{padding: 7px 5px;
+                font-size: xx-large;
+                
+                font-family: sans-serif;
+            font-weight: bolder;}
+            #btncontainer{text-align: center;}
+            #button{padding: 6px 18px;
+                border:1px solid purple;
+                background-color: rgb(244, 26, 26);
+                color: white;
+                font-weight: bolder;
+                cursor: pointer;
+                transition: 0.5s;
+                 display: inline;
+    margin-left: auto;
+    right: -44%;
+    position: relative;
+            border-radius: 10px;}
+            #button:hover{background-color: rgb(153, 9, 9);
+            transition: 0.5s;
+        letter-spacing: 2px;}
+            #questions{padding-bottom: 20px;
+            font-size: xxx-large;
+        color:gold;}
+            @media screen and (max-width:600px){
+                h1{font-size: large;}
+            }
+            .container ul li input{font-size: large;}
+            .answer{cursor: pointer;}
+           
+      </style>
+</head>
+<body>
+      <div class="container" id="quiz">
+        <h1 id='questions'>Choose the Correct answers </h1>
+        <ul>
+            <li>
+                <input type="radio" name="answer" class="answer" id="a" >
+                <label for="a"   id="a_text"  class="e_text">questions </label>
+            </li>
+            <li>
+                <input type="radio" name="answer" class="answer" id="b" >
+                <label for="b" id="b_text"  class="f_text">questions</label>
+            </li>
+            <li>
+                <input type="radio" name="answer"  id="c" class="answer" >
+                <label for="c" id="c_text"  class="g_text">questions</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" id="d" class="answer" >
+                <label for="d" id="d_text" class="h_text">questions</label>
+            </li>
+            
+        </ul>
+        <div id="btncontainer">
+        <button id="button">Next</button>
+        </div>
+      </div>
+
+      <script>
+        const quizData = [
+             {question:'what is the full form of HTML',
+             a:'hyper text markup language',
+             b:'casecading style sheet',
+             c:'Low level language',
+             d:'hyper text style sheet',
+             correct:'a'},
+              {question:'what is the full form of CSS',
+             a:'hyper text markup language',
+             b:'casecading style sheet',
+             c:'Low level language',
+             d:'hyper text style sheet',
+             correct:'b'},
+              {question:'what is the full form of LAN',
+             a:'hyper text markup language',
+             b:'Low level language',
+             c:'local area network',
+             d:'hyper text style sheet',
+             correct:'c'},
+              {question:'what is the full form of WAN',
+             a:'hyper text markup language',
+             b:'casecading style sheet',
+             c:'Low level language',
+             d:'wide area network',
+             correct:'d'},
+             {question:'what is the full form of OS',
+             a:'Operating system',
+             b:'casecading style sheet',
+             c:'Low level language',
+             d:'wide area network',
+             correct:'a'},
+             {question:'what is the full form of http',
+             a:'hyper text markup language',
+             b:'Hypertext Transfor Protocol',
+             c:'Low level language',
+             d:'wide area network',
+             correct:'b'},
+             {question:'what is the full form of VS',
+             a:'hyper text markup language',
+             b:'Hypertext Transfor Protocol',
+             c:'Visual Studio',
+             d:'wide area network',
+             correct:'c'},
+             {question:'what is the full form of JS',
+             a:'hyper text markup language',
+             b:'casecading style sheet',
+             c:'Low level language',
+             d:'Javascript (Language)',
+             correct:'d'},
+             {question:'what is the full form of GFT',
+             a:'Operating system',
+             b:'casecading style sheet',
+             c:'Graphics tools ',
+             d:'wide area network',
+             correct:'c'},
+             {question:'what is the full form of fb',
+             a:'Facebook',
+             b:'Hypertext Transfor Protocol',
+             c:'Low level language',
+             d:'wide area network',
+             correct:'a'},
+             {question:'what is the full form of wa',
+             a:'hyper text markup language',
+             b:'Hypertext Transfor Protocol',
+             c:'Visual Studio',
+             d:'WhatsApp',
+             correct:'d'},
+             {question:'what is the full form of yt',
+             a:'hyper text markup language',
+             b:'casecading style sheet',
+             c:'youtube',
+             d:'Javascript (Language)',
+             correct:'c'},
+             {question:'what is the full form of GFD',
+             a:'Operating system',
+             b:'Graphics desighn',
+             c:'Graphics tools ',
+             d:'wide area network',
+             correct:'b'},
+             {question:'what is the full form of IG',
+             a:'Instagram',
+             b:'Hypertext Transfor Protocol',
+             c:'Low level language',
+             d:'wide area network',
+             correct:'a'},
+             {question:'what is the full form of DM',
+             a:'hyper text markup language',
+             b:'Hypertext Transfor Protocol',
+             c:'Visual Studio',
+             d:'Digital marketting',
+             correct:'d'},
+             {question:'what is the full form of CPU',
+             a:'hyper text markup language',
+             b:'casecading style sheet',
+             c:'Central processing Unit',
+             d:'Javascript (Language)',
+             correct:'c'}
+        ]
+        /// declaring a variable
+        const a_text = document.getElementById('a_text');
+        const b_text = document.getElementById('b_text');
+        const c_text = document.getElementById('c_text');
+        const d_text = document.getElementById('d_text');
+        // const e_text = document.getElementsByClassName('e_text');
+        // const f_text = document.getElementsByClassName('f_text');
+        // const g_text = document.getElementsByClassName('g_text');
+        // const h_text = document.getElementsByClassName('h_text');
+        const submitBtn = document.getElementById('button');
+        const answerEls = document.querySelectorAll('.answer');
+        const questionEls = document.getElementById("questions");
+        const quiz = document.getElementById("quiz")
+        let currentQuiz = 0;
+        let score = 0;
+
+        // 
+
+
+        loadData()
+        function loadData(){
+            const currentQuizData = quizData[currentQuiz];
+
+             questionEls.innerText = currentQuizData.question
+             a_text.innerText = currentQuizData.a
+             b_text.innerText = currentQuizData.b
+             c_text.innerText = currentQuizData.c
+             d_text.innerText = currentQuizData.d
+            //  e_text.innerText = currentQuizData.a
+            //  f_text.innerText = currentQuizData.b
+            //  g_text.innerText = currentQuizData.c   
+            //  h_text.innerText = currentQuizData.d
+             deselectAnwser()
+            
+        }
+
+
+
+
+
+        function getselectAnwsers(){
+          let answer = undefined;
+          answerEls.forEach((element)=>{
+          if(element.checked){
+            answer = element.id;
+          }
+          })
+          return answer;
+        }
+
+        function deselectAnwser(){
+             answerEls.forEach((element)=>{
+                element.checked = false;
+        })}
+       
+
+
+        submitBtn.addEventListener('click',()=>{
+            const answer = getselectAnwsers()
+            if(answer){
+                if(answer === quizData[currentQuiz].correct){
+                    score++
+                }
+                currentQuiz++
+                if(currentQuiz < quizData.length){
+                    loadData()
+                }
+                else{
+                   quiz.innerHTML = `<h1>Total Marks: 16</h1>
+                   <h1>Your Marks: ${score}</h1>`
+
+                }
+
+            }
+
+        })
+
+
+
+
+
+        //   
+        
+        //    const quiz = document.getElementById('quiz')
+        // const answerEls= document.querySelectorAll('.answer')
+        // const questionEls = document.getElementById( 'questions');
+        // const a_text = document.getElementById('a_text');
+        // const b_text = document.getElementById('b_text');
+        // const c_text = document.getElementById('c_text');
+        // const d_text = document.getElementById('d_text');
+        // const submitBtn = document.getElementById('button');
+        // let currentQuiz = 0;
+        // let score = 0;
+        
+
+
+        // function loadQuiz(){
+            
+        //     const currentQuizData = quizData[currentQuiz];
+            
+        //     questionEls.innerText = currentQuizData.question;
+            
+        //     a_text.innerText = currentQuizData.a
+        //     b_text.innerText = currentQuizData.b
+        //     c_text.innerText = currentQuizData.c
+        //     d_text.innerText = currentQuizData.d
+            
+        
+        //     deselectAnswer();
+        // }
+        // loadQuiz();
+
+    
+        
+        
+        // function getSelected(){
+            
+        //     let answer= undefined;
+
+        //     answerEls.forEach((element) => {
+        //         if(element.checked){
+        //             answer = element.id;
+        //         }
+        //     })
+        //     return answer;
+        // }
+
+        // function deselectAnswer(){
+        //  answerEls.forEach((element)=>{
+        //        element.checked = false;
+        //     });
+        // }
+        
+        // submitBtn.addEventListener('click',()=>{
+        //     const answer = getSelected();
+
+        //     if(answer){
+        //         if(answer === quizData[currentQuiz].correct){
+        //             score++
+        //         }
+        //         currentQuiz++;
+            
+        //     if(currentQuiz < quizData.length){
+        //         loadQuiz();
+        //     }
+
+        //     else{ quiz.innerHTML = `<h2>your answered correctly at ${score}/${quizData.length}questions</h2>`;
+        // }}
+        //      });
+
+
+
+      </script>
+    
+</body>
+</html>

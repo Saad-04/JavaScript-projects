@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate iches into meter</title>
+    <style>
+        body{display: flex;
+        height: 100vh;
+    justify-content: center;
+    font-family: sans-serif;
+align-items: center;
+background-color: rgb(187, 206, 18);}
+h1{color: white;
+font-weight: bolder;}
+    .container:hover{ box-shadow: 10px 10px 35px rgba(0,0,0,1);
+    transition: 0.6s;}
+    .container{
+        height: 40vh;
+        border-radius: 20px;
+        width: 40vw;
+        transition: 0.6s;
+background-color: rgb(98, 7, 159);
+padding: 30px 100px;}
+.parentone{display: flex;
+text-align: center;
+justify-content: center;
+align-items: center;}
+.parenttwo{text-align: center;
+color: white;
+height: 30%;
+font-weight: bolder;}
+.Feet #Feet{padding: 10px;
+border-radius: 6px;}
+.Inch #Inch{padding: 10px;
+border-radius: 6px;}
+.equals{color: white;
+font-size: 2rem;
+padding:0 10px;}
+#button{color: white;
+        background: linear-gradient(orange,red);
+    padding: 5px 10px;
+    margin-top: 30px;
+    border: 1px solid orangered;
+    border-radius: 6px;
+    cursor: pointer;
+    color: aliceblue;}
+    .controler{display: none;}
+    .startbuttoncontainer{display: block;}
+    .startbutton{color: white;
+        background: linear-gradient(orange,red);
+    padding: 5px 10px;
+    margin-top: 30px;
+    border: 1px solid orangered;
+    border-radius: 6px;
+    cursor: pointer;
+    color: aliceblue;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="startbtncontainer" id="startbtncontainer" onclick="runIt()"><button class="startbutton">Lets Start</button></div>
+        <div class="controler" id="controler">
+        <div class="parentone">
+        <div class="Feet">
+            <h1>Feet</h1>
+            <input type="number" id="Feet" placeholder="type Feet here!!">
+        </div>
+
+        <div class="equals">
+            =
+        </div>
+
+        <div class="Inch">
+            <h1>Inch</h1>
+            <input type="number" placeholder="Result show here" id="Inch">
+        </div>
+        </div>
+        <div class="parenttwo">
+            <button id="button">Anser</button>
+            <h2 id="here"></h2>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        let feet = document.getElementById('Feet')
+        let inch = document.getElementById('Inch')
+        let button = document.getElementById("button")
+        let sbtncon = document.getElementById('startbtncontainer')
+        let controler = document.getElementById("controler")
+        let here = document.getElementById('here')
+
+        function runIt(){
+            controler.style.display = "block"
+            sbtncon.style.display = "none"
+        }
+      
+       
+        feet.addEventListener('input',calulate)
+        
+        function calulate(){
+            let f = this.value 
+            let i = f*12
+            inch.value = i;
+           here.innerHTML = i +' inches in '+f+" Feet";
+        }
+    
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

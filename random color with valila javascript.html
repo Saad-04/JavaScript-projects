@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta"viewport" content="width=device-width, initial-scale=1.0">
+    <title>random color</title>
+    <style>
+        body{color: purple;
+        display: flex;
+        background-color: dodgerblue;
+    justify-content: center;
+align-items: center;
+height: 100vh;}
+        button{color: white;
+        background: linear-gradient(orange,red);
+    padding: 5px 10px;
+    border: 1px solid orangered;
+    border-radius: 6px;
+    cursor: pointer;
+    color: aliceblue;
+}
+button:hover{background: rgba(255, 68, 0, 0.575);}
+    </style>
+</head>
+<body>
+    <button id="button">Change</button>
+    
+
+    <script>
+        let button = document.getElementById("button")
+        let body = document.querySelector("body");
+        let colors = ['red',
+        'blue',
+        "purple",
+        "orange",
+        "cyan",
+        "dodgerblue",
+        "yellow",
+        "brown",
+        "green",
+        "black",
+        "white",
+        "aliceblue",
+        "aqua",
+        "bluevoilet",
+        "burlywood"];
+
+        // create a logic
+
+        button.addEventListener('click',changeColor)
+
+        function changeColor(){
+            let colorCh = parseInt(Math.random()*colors.length);
+            body.style.backgroundColor = colors[colorCh]
+          
+
+        }
+
+    </script>
+</body>
+</html>

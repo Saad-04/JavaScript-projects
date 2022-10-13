@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        margin: 0;
+    box-sizing: border-box;}
+        .container{display: flex;
+        justify-content: center;
+        font-family: sans-serif;
+        background: linear-gradient(purple,rgb(144, 3, 3));
+        flex-direction: column;
+        color:white;
+        /* text-align: center; */
+    align-items: center;
+height:100vh ;}
+.card{padding:20px;
+    display: flex;
+    margin: 20px;
+    font-family: sans-serif;
+    width: 58%;
+    background-color: white;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 50vh auto;
+    border-radius: 10px;
+    color: black;
+    flex-direction: column;
+}
+.container h1{
+    padding-bottom: 20px;
+}
+.card .john{
+    height: 150px;
+    margin-bottom: 15px;
+    width: 130px;
+    display: inline;
+    border-radius: 10px;
+}
+.buttons{position: relative;
+    display: block;
+margin-left: auto;
+right: 5px;
+}
+.buttons img{
+    height: 30px;
+    width: 50px;
+    border-radius: 10px ;
+    transition: 0.3s;
+}
+.buttons img:hover{
+padding: 5px;
+cursor: pointer;
+transition: 0.4s;
+    
+}
+
+
+
+/* for micheal */
+
+    </style>
+</head>
+<body onload="init()">
+    
+    <div class="container">
+        <h1>What clients says</h1>
+        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h3>
+        
+        <div class="card " id="one">
+            <span class="buttons">
+                <img class="btn"  id="preBtn" onclick="preBtn()" src="all website/img/icons/leftarrow.jpg" alt="">
+                <img class="btn"  id="middleBtn" onclick="middleBtn()" src="all website/img/icons/mx.png" alt="">
+                <img class="btn " id="nextBtn" onclick="nextBtn()"  src="all website/img/icons/rightarrow.jpg" alt="">
+            </span>
+            <img id="customer-img" class="john" src="saaad/parkimage.jpg" alt="">
+            <h3 id="customer-name">John</h3>
+            <p id="customer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi repellat assumenda suscipit maxime commodi dignissimos eaque consectetur odio quam, odit cupiditate. Illo aspernatur optio molestias culpa quia accusantium earum odit, architecto, ad obcaecati qui! Modi optio odit est omnis enim nesciunt. Corporis, provident impedit repellat porro expedita mollitia quis nobis labore culpa, eligendi vel, quae magnam sit optio fugit officiis maiores. Temporibus a facere quae voluptas, tempora accusamus officia recusandae dolore atque natus illum, similique amet nisi qui magnam</p>
+            
+
+        </div>
+
+
+
+
+<div class="card " id="two">
+            <span class="buttons">
+                <img class="btn"  id="preBtn" onclick="preBtn()" src="all website/img/icons/leftarrow.jpg" alt="">
+                <img class="btn"  id="middleBtn" onclick="middleBtn()" src="all website/img/icons/mx.png" alt="">
+                <img class="btn " id="nextBtn" onclick="nextBtn()"  src="all website/img/icons/rightarrow.jpg" alt="">
+            </span>
+            <img id="customer-img" class="john" src="saaad/snapchat.jpg" alt="">
+            <h3 id="customer-name">micheal</h3>
+            <p id="customer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi repellat assumenda suscipit maxime commodi dignissimos eaque consectetur odio quam, odit cupiditate. Illo aspernatur optio molestias culpa quia accusantium earum odit, architecto, ad obcaecati qui! Modi optio odit est omnis enim nesciunt. Corporis, p</p>
+            
+
+        </div>
+
+
+          <div class="card " id="three">
+            <span class="buttons">
+                <img class="btn"  id="preBtn" onclick="preBtn()" src="all website/img/icons/leftarrow.jpg" alt="">
+                <img class="btn"  id="middleBtn" onclick="middleBtn()" src="all website/img/icons/mx.png" alt="">
+                <img class="btn " id="nextBtn" onclick="nextBtn()"  src="all website/img/icons/rightarrow.jpg" alt="">
+            </span>
+            <img id="customer-img" class="john" src="saaad/mirrorselfie.jpg" alt="">
+            <h3 id="customer-name">Saam</h3>
+            <p id="customer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi repellat assumenda suscipit maxime commodi dignissimos eaque consectetur odio quam, odit cupiditate. Illo aspernatur optio molestias culpa quia accusantium earum odit, architecto, ad obcaecati qui! Modi optio odit est omnis enim nesciunt. Corporis, provident impedit repellat porro expedita mollitia quis nobis labore culpa, eligendi vel, quae magnam sit optio fugit officiis </p>
+            
+
+        </div>
+    </div>
+
+    <script>
+        // let preBtn=document.getElementById('preBtn')
+        // let middleBtn=document.getElementById('middleBtn')
+        // let nextBtn=document.getElementById('nextBtn')
+        // let onePara=document.querySelector('.one')
+        // let twoPara=document.querySelector('.two')
+        // let threePara=document.querySelector('.three')
+       
+        // make a funstions
+       
+        const init=()=>{
+            document.getElementById('two').style.display='none';
+            document.getElementById('three').style.display='none';
+            
+        }
+        init()
+
+
+
+       function preBtn(){
+        document.getElementById('one').style.display='block'
+        document.getElementById('two').style.display='none'
+        document.getElementById('three').style.display='none'
+
+       }
+       
+       function middleBtn(){
+         document.getElementById('one').style.display='none'
+        document.getElementById('two').style.display='block'
+        document.getElementById('three').style.display='none'
+       }
+       
+       function nextBtn(){
+         document.getElementById('one').style.display='none'
+        document.getElementById('two').style.display='none'
+        document.getElementById('three').style.display='block'
+       }
+    </script>
+</body>
+</html>

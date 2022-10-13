@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>.container{display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;}
+    .button{    color: #0ff700;
+    padding: 5px;
+    margin: 2px;
+    width: 53px;
+        background-color: #6c2c2c;
+    height: 7vh;
+    cursor: pointer;
+    font-size:21px;
+    border-radius: 9px;
+    border: 1px solid rgb(0, 0, 0);}
+    body{    background-color: teal;}
+    .input{padding:6px;
+        border: 2px solid rgb(0, 0, 0);
+    margin-bottom: 15px;
+    font-weight: bolder;
+    background-color: #d9cccc;
+    color: rgb(121, 1, 172);
+border-radius: 4px;
+width: 18vw;}
+.calculator{    padding: 5px;
+    border-radius: 13px;
+        height: 50vh;
+        flex-wrap: nowrap;
+            display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    border: 3px solid #000000;
+    background-color: #4c374f54;}
+    
+
+    </style>
+    
+</head>
+<body>
+    <h1></h1>
+    <div class="container">
+        <div class="calculator">
+        <div class="row">
+            <input type="text" class="input">
+        </div>
+        <div class="row">
+            <button class="button">C</button>
+            <button class="button">AC</button>
+            <button class="button">%</button>
+            <button class="button">10</button>
+        </div>
+        <div class="row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button">*</button>
+        </div>
+         <div class="row">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button">+</button>
+        </div>
+         <div class="row">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button">-</button>
+        </div>
+         <div class="row">
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">/</button>
+            <button class="button">=</button>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // declaring a variables
+
+        // let string ="";
+        // let button=document.querySelectorAll('.button');
+        // Array.from(button).forEach((button)=>{
+        //     button.addEventListener('click',(e)=>{
+        //         if(e.target.innerHTML == '='){
+        //             string=eval(string);
+        //             document.querySelector('.input').value = string;
+                    
+        //         }
+        //         else if(e.target.innerHTML == 'AC'){
+        //             string='';
+        //             document.querySelector('.input').value = string;
+        //         }
+        //           else if(e.target.innerHTML == 'C'){
+        //             --string
+                   
+        //             document.querySelector('.input').value = string;
+        //         }
+        //         else{
+        //         string = string + e.target.innerHTML
+        //         document.querySelector('.input').value = string}
+        //     }
+        //     )
+                
+            
+        // })
+
+        ////////////////////////////////////////////////////////////////////////
+        
+
+        let string = "";
+        let button =document.querySelectorAll('.button');
+        let inputValue = document.querySelector('.input')
+        
+        Array.from(button).forEach((button)=>{
+            button.addEventListener('click',(e)=>{
+                if(e.target.innerHTML == '='){
+                     string =eval(string)
+                    document.querySelector('.input').value= string;
+                }
+                else if(e.target.innerHTML == 'AC'){
+                    string = ''
+                    document.querySelector('.input').value = null;
+                }
+            //    else if(e.target.innerHTML == 'C'){
+                
+            //    }
+                
+                else{
+                    string = string + e.target.innerHTML
+                    document.querySelector('.input').value = string
+                }
+            })
+        })
+
+    </script>
+    
+</body>
+</html>

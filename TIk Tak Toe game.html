@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik Tak Toe </title>
+    <style>
+        *{margin: 0;
+        padding: 0;
+   }
+   body{ background: linear-gradient(45deg, #000000, #000000);
+color: white;}
+        .gamecontainer{
+            display: flex;
+            height: 100vh;
+            
+            justify-content: center;
+            align-items: center;
+
+        }
+        .container{display: grid;
+        grid-template-columns:repeat(5,6vw);
+        border: none;
+        grid-template-rows:repeat(5,6vw);
+    }
+    .box:hover{background-color: #00000030;
+}
+    .box{display: flex;
+    justify-content: center;
+align-items: center;
+cursor: pointer;
+color:rgb(255, 0, 0);
+border-radius: 6px;
+border: 3px solid #42ff02;
+font-size: 6rem;}
+.br-t{border-top: none;}
+.br-r{border-right: none}
+.br-l{border-left: none}
+.br-b{border-bottom: none}
+button{padding: 4px 8px;
+    margin-left: auto;
+    margin-top: 10px;
+    border: none;
+    font-family: serif;
+    font-weight: bolder;
+    display: block;
+    font-size:x-large;cursor: pointer;
+border-radius: 3px;color: rgb(3, 1, 15);
+background:linear-gradient(dodgerblue,cyan);}
+button:hover{background: linear-gradient(rgb(7, 124, 242),rgb(2, 206, 206));}
+.gameinfo{    margin-top: -150px;
+    background-color: #00000030;
+    margin-left: 45px;
+    width: 21vw;
+    height: 82px;
+    font-family: monospace;
+    border-radius: 8px;
+    padding: 12px;}
+    .info{color: rgb(0, 251, 255);}
+    .head{text-align: center;
+    font-size: xxx-large;}
+   
+    .imgFire{display: none;}
+    .imgfire{display: block;}
+    
+    </style>
+</head>
+<body>
+    <h1 class="head">WELCOME To Tic Tac Toe</h1>
+    <div class="gamecontainer">
+          <img id="imgFire" class="imgFire" src="img/icons/firework.gif" alt="">
+        <div class="container" id="container">
+           <div class="box br-t br-l"><span class="boxtext"></span></div>
+           <div class="box br-t"><span class="boxtext"></span></div>
+           <div class="box br-t "><span class="boxtext"></span></div>
+           <div class="box br-t "><span class="boxtext"></span></div>
+           <div class="box br-t br-r "><span class="boxtext"></span></div>
+           <div class="box br-l "><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box"><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box br-r"><span class="boxtext"></span></div>
+           <div class="box br-l "><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box  br-r"><span class="boxtext"></span></div>
+           <div class="box  br-l"><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box "><span class="boxtext"></span></div>
+           <div class="box br-r "><span class="boxtext"></span></div>
+           <div class="box br-l br-b"><span class="boxtext"></span></div>
+           <div class="box br-b "><span class="boxtext"></span></div>
+           <div class="box br-b"><span class="boxtext"></span></div>
+           <div class="box br-b"><span class="boxtext"></span></div>
+           <div class="box br-b br-r"><span class="boxtext"></span></div>
+          
+        </div>
+        <div class="gameinfo">
+            <h1> <span class="info"></span></h1>
+            <div>
+               
+                <button id="reset" onclick="window.reload()">Reset</button>
+        </div>
+        </div>
+        </div>
+    
+        <script >
+            let turn = 'x';
+let gameOver = false;
+
+
+// create a some functions
+const changeTurn=()=>{
+    return turn ==='x'?'0':'x';
+}
+;
+// function to check a win
+const checkWin =()=>{
+    let boxtext=document.getElementsByClassName('boxtext');
+    let wins=[
+        [0,1,2,3,4],
+        [5,6,7,8,9],
+        [10,11,12,13,14],
+        [15,16,17,18,19],
+        [20,21,22,23,24],
+        [25,26,27,28,29],
+        [30,31,32,33,34],
+        [35,36,37,38,39]
+    ]
+    wins.forEach(e=>{
+        if ((boxtext[e[0]].innerHTML === boxtext[e[1]].innerHTML) && (boxtext[e[2]].innerHTML === boxtext[e[1]].innerHTML) && (boxtext[e[0]].innerHTML !== "")) {
+            document.getElementById('imgFire').classList.remove('imgFire');
+            document.getElementById('imgFire').classList.add('imgfire');
+            document.getElementById('container').style.display = 'none'
+            
+            document.querySelector('.info').innerHTML = boxtext[e[0]].innerHTML +' '+' Won'
+            gameOver = true;
+        }
+    })
+}
+// Main logic here
+
+let boxes=document.getElementsByClassName('box');
+Array.from(boxes).forEach(element=>{
+    let boxtext=element.querySelector('.boxtext');
+    element.addEventListener('click',()=>{
+        if(boxtext.innerHTML ===''){
+            boxtext.innerHTML = turn;
+           turn = changeTurn();
+            checkWin();
+            if (!gameOver) {
+                
+                document.getElementsByClassName('info')[0].innerHTML = 'Turn for '+turn;
+            }
+        }
+    })
+})
+        </script>
+</body>
+</html>

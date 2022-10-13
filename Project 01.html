@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible"
+            content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="preconnect"
+            href="https://fonts.googleapis.com">
+        <link rel="preconnect"
+            href="https://fonts.googleapis.com">
+        <link rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@300&display=swap"
+            rel="stylesheet">
+
+        <title>Dorco</title>
+        <style>
+            * {
+                margin: 0%;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: rgba(255, 255, 0, 0.15);
+                overflow-x: hidden;
+            }
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: white;
+                font-family: 'Montserrat', sans-serif;
+                padding: 10px 7%;
+                box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+                width: 100vw;
+            }
+
+            header .logo {
+                font-weight: bolder;
+                color: black;
+                font-size: 15px;
+                text-transform: capitalize;
+                text-decoration: none;
+                background-color: white;
+            }
+
+            header .logo .fas {
+                color: rgb(229, 135, 4);
+                margin-right: 10px;
+                font-size: 1.2rem;
+            }
+
+            header .navbar {
+                display: flex;
+            }
+
+            header .navbar a {
+                text-decoration: none;
+                color: black;
+                font-family: sans-serif;
+                padding: 0 2%;
+            }
+
+            header .navbar a:hover {
+                color: red;
+            }
+
+            header .icons .fas {
+                font-size: 1.2rem;
+                cursor: pointer;
+                padding: 5px 4px;
+            }
+
+            header .icons .fas:hover {
+                background: #ffae0086;
+                color: #fff;
+                transition: 0.5s;
+            }
+
+            .search-form {
+                position: absolute;
+                top: 55px;
+                height: 37px;
+                padding: 5px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: nowrap;
+                right: -2000px;
+                transition: 0.5s;
+                box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+                background-color: white;
+                width: 60%;
+                margin-right: 5px;
+            }
+
+            .search-form .fas {
+                font-size: 1.2rem;
+            }
+
+            .search-form .fas:hover {
+                color: #ff7800;
+            }
+
+            .search-form .inputsearch {
+                height: 100%;
+                width: 90%;
+                border: none;
+                padding: 4px;
+            }
+
+            .active {
+                right: 1px;
+                transition: 0.6s;
+            }
+
+            .cart {
+                position: absolute;
+                top: 50px;
+                text-align: center;
+                background-color: white;
+                padding: 0.4rem;
+                margin: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                transition: 0.6s;
+                align-items: center;
+                box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+                right: -400px
+            }
+
+            .cart.active {
+                right: 1px;
+                transition: 0.6s;
+            }
+
+            .cart .box img {
+                height: 30px;
+            }
+
+            .cart .box {
+                display: flex;
+                margin-bottom: 0.7rem;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+
+            .cart .box div {
+                margin: 0 5px;
+                text-align: left;
+            }
+
+            .cart .box div p {
+                color: grey;
+            }
+
+            .cart .box .fas:hover {
+                color: #d29206;
+            }
+
+            .cart div .button:hover {
+                background-color: rgb(10, 197, 135);
+            }
+
+            .cart div .button {
+                border: none;
+                border-radius: 5px;
+                color: white;
+                background-color: rgba(6, 223, 151, 0.867);
+                margin: 0.4rem 0;
+                padding: 0.2rem;
+            }
+
+            /* ///////// */
+            .Loginpage {
+                position: absolute;
+                top: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 5px;
+                padding: 1rem;
+                background-color: white;
+                flex-direction: column;
+                transition: 0.6s;
+                box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+                right: -400px;
+            }
+
+            .Loginpage input {
+                padding: 3px;
+                margin: 0.4rem 0;
+            }
+
+            .Loginpage.active {
+                right: 1px;
+                transition: 0.6s;
+            }
+
+            .Loginpage p {
+                font-size: 0.7rem;
+                padding-bottom: 0.4rem;
+                color: grey;
+            }
+
+            .Loginpage .button {
+                padding: 0.3rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+                background-color: #d29206;
+            }
+
+            .button:hover {
+                border: 1px solid grey;
+                background-color: #a77407;
+            }
+
+            .Loginpage p a {
+                color: orange;
+            }
+
+            .navbar {
+                display: block;
+            }
+
+            @media screen and (max-width:730px) {
+                header .navbar {
+                    display: none;
+                }
+
+                header {
+                    width: 100vw;
+                }
+
+                .features {
+                    padding: 0 8px;
+                }
+
+
+            }
+
+            .sidenav {
+                transition: 0.5s;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0.4rem;
+                color: white;
+                background-color: rgba(7, 179, 213, 0.448);
+                position: absolute;
+                top: 50px;
+                margin: 5px;
+                right: -400px;
+            }
+
+            .sidenav.active {
+                right: 1px;
+                transition: 0.6s;
+            }
+
+            .sidenav a {
+                color: white;
+                padding: 2px 0;
+                display: block;
+                text-decoration: none;
+            }
+
+            .sidenav a:hover {
+                color: red;
+                letter-spacing: 1px;
+                transition: 0.7s;
+            }
+
+            /* about */
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 7% 15%;
+                background-image: url('img/background/table-2879213__340.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: black;
+                background-position: center;
+                width: 100vw;
+
+                flex-direction: column;
+                font-family: sans-serif;
+                color: rgb(0, 0, 0);
+            }
+
+            .container p {
+                font-weight: lighter;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .container h1 {
+                font-size: 3.5rem;
+                padding-bottom: 20px;
+            }
+
+            button {
+                padding: 8px 15px;
+                color: black;
+                border: 1px solid black;
+                margin-top: 15px;
+                font-weight: bold;
+                border-radius: 4px;
+                cursor: pointer;
+                /* font-weight: bold; */
+                background-color: transparent
+            }
+
+            button:hover {
+                color: white;
+                background-color: orange;
+
+                transition: 0.6s;
+            }
+
+            /* about end */
+
+            /* feature area start here*/
+            .features {
+                font-family: 'Roboto', sans-serif;
+                ;
+                width: 100vw;
+                text-align: center;
+                padding: 0 8%;
+                margin-top: 15px;
+            }
+
+            .features .box img {
+                height: 70px;
+                margin-bottom: 6px;
+            }
+
+            .features h1 {
+                padding: 10px 0;
+                font-weight: bolder;
+            }
+
+            .features h1 span {
+                display: inline;
+                color: white;
+                background-color: orange;
+                padding: 2px 10px;
+                clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+            }
+
+            .featureboxcontainer {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .featureboxcontainer .box {
+                height: 260px auto;
+                width: 250px;
+                border: 2px solid rgba(128, 128, 128, 0.379);
+                padding: 7px;
+                border-radius: 4px;
+                background-color: white;
+                margin: 7px;
+            }
+
+            .featureboxcontainer .box:hover {
+                box-shadow: 2px 2px 5px rgba(40, 38, 38, 0.727);
+                transition: 0.4s;
+            }
+
+            .featureboxcontainer .box h3 {
+                padding-bottom: 6px;
+            }
+
+            .featureboxcontainer .box button {
+                margin-bottom: 6px;
+            }
+
+            .featureboxcontainer .box p {
+                padding-bottom: 6px;
+                font-size: small;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 500;
+            }
+
+            /* feature area end here */
+
+            /* products area start here  */
+            .products {
+                font-family: 'Roboto', sans-serif;
+                ;
+                width: 100vw;
+                text-align: center;
+                padding: 0 8%;
+                margin-top: 15px;
+            }
+
+            .boxes img {
+                height: 70px;
+                margin-bottom: 6px;
+            }
+
+            .products h1 {
+                padding: 10px 0;
+                font-weight: bolder;
+            }
+
+            .products h1 span {
+                display: inline;
+                color: white;
+                background-color: orange;
+                padding: 2px 10px;
+                clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+            }
+
+            .productbox {
+
+                display: flex;
+                /* flex-direction: ; */
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                /* overflow-x: scroll; */
+
+            }
+
+            .boxes {
+                height: 260px !important;
+                width: 250px !important;
+                border: 2px solid rgba(128, 128, 128, 0.379);
+                padding: 7px;
+                border-radius: 4px;
+                text-align: center;
+                background-color: white;
+                margin: 7px;
+            }
+
+            .boxes:hover {
+                box-shadow: 2px 2px 5px rgba(40, 38, 38, 0.727);
+                transition: 0.4s;
+            }
+
+            .box h3 {
+                padding-bottom: 6px;
+            }
+
+            .boxes button {
+                margin-bottom: 6px;
+            }
+
+            .boxes p {
+                padding-bottom: 6px;
+                font-size: small;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 500;
+            }
+
+            /* products area end here  */
+
+        </style>
+    </head>
+
+    <body>
+        <header class="header">
+            <nav class="sidenav">
+
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#Products">Products</a>
+                <a href="#categories">categories</a>
+                <a href="#Reviews">Reviews</a>
+                <a href="#Blogs">Blogs</a>
+
+            </nav>
+            <a href=""
+                class="logo"><i class="fas fa-shopping-basket"></i>Groco</a>
+            <nav class="navbar">
+
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#Products">Products</a>
+                <a href="#categories">categories</a>
+                <a href="#Reviews">Reviews</a>
+                <a href="#Blogs">Blogs</a>
+
+            </nav>
+            <div class="icons">
+                <div class="fas fa-bars barsbtn"
+                    id="barsbtn"></div>
+                <div class="fas fa-search"
+                    id="searchbtn"></div>
+                <div class="fas fa-shopping-cart"
+                    id="cartbtn"></div>
+                <div class="fas fa-user"
+                    id="loginbtn"></div>
+            </div>
+            <form action=""
+                class="search-form">
+                <input type="text"
+                    class="inputsearch"
+                    placeholder="search">
+                <label for="searchbox"
+                    class="fas fa-search"></label>
+
+            </form>
+            <!-- secsond -->
+            <div class="cart">
+                <div class="box">
+                    <img src="img/Kitchen/watermelon.crdownload"
+                        class="watermelon"
+                        alt="">
+                    <div>
+                        <h3>Watermelon</h3>
+                        <p>$4.99/- Qty-1</p>
+                    </div>
+                    <i class="fas fa-trash"></i>
+                </div>
+                <div class="box">
+                    <img src="img/Kitchen/onion.jpg"
+                        alt="">
+                    <div>
+                        <h3>Onion</h3>
+                        <p>$4.99/- Qty-1</p>
+                    </div>
+                    <i class="fas fa-trash"></i>
+                </div>
+                <div class="box">
+                    <img src="img/Kitchen/chicken.jpg"
+                        alt="">
+                    <div>
+                        <h3>Chicken</h3>
+                        <p>$4.99/- Qty-1</p>
+                    </div>
+                    <i class="fas fa-trash"></i>
+                </div>
+                <div>
+                    <h3>Total: 19.68$/-</h3>
+                    <button class="button">Checkout</button>
+                </div>
+            </div>
+            <!-- ////////////////////////// -->
+            <div class="Loginpage">
+                <h3>LOGIN NOW</h3>
+                <input type="email"
+                    placeholder="your email">
+                <input type="password"
+                    placeholder="Your password">
+                <p>Forget Your password <a href="">Click Here</a></p>
+                <p>Dont't have An Account <a href="">Click Here</a></p>
+                <button class="button">Login Now</button>
+            </div>
+
+        </header>
+
+        <!-- About -->
+        <div class="container"
+            id="Home">
+            <h1>Always Choose Good</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi nihil praesentium non ut veritatis minus
+                ipsum magnam exercitationem deserunt eligendi.l Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat, sequi.
+            </p>
+            <button>OUR MENU</button>
+        </div>
+        <!-- Features area -->
+        <div class="features">
+            <h1>Our <span>Features</span></h1>
+            <div class="featureboxcontainer">
+                <div class="box">
+                    <img src="img/Kitchen/organic.jpg"
+                        alt="">
+                    <h3>Fresh and Organic</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+                <div class="box">
+                    <img src="img/Kitchen/delivery boy.jpg"
+                        alt="">
+                    <h3>Free Delivery</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+                <div class="box">
+                    <img src="img/Kitchen/payment easy.jpg"
+                        alt="">
+                    <h3>Easy Payment</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </div>
+        <!-- products area -->
+        <div class="products">
+            <h1>Our <span>Products</span></h1>
+
+            <div class=" productbox">
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/onion.jpg"
+                        alt="">
+                    <h3>Onion</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <img src=""
+                        alt="">
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/cubbage.jpg"
+                        alt="">
+                    <h3>Cubbage</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/carrot.jpg"
+                        alt="">
+                    <h3>Carrot</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/tomato.jpg"
+                        alt="">
+                    <h3>Tomato</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/potato.jpg"
+                        alt="">
+                    <h3>Potato</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/cucumber.jpg"
+                        alt="">
+                    <h3>Cucumber</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/redchili.jpg"
+                        alt="">
+                    <h3>Red chilli</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/greenchili.jpg"
+                        alt="">
+                    <h3>Green Chilli</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/redish.jpg"
+                        alt="">
+                    <h3>Redish</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+                <div class=" boxes">
+                    <img src="img/Kitchen/leek.jpg"
+                        alt="">
+                    <h3>Leek</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nihil porro rerum earum hic?</p>
+                    <button>Read More</button>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <!-- products area end -->
+
+
+        <!-- <script>
+        let searchform = document.querySelector('.search-form');
+        document.querySelector('#searchbtn').onclick = ()=>{
+            searchform.classList.toggle('active');
+            cartPage.classList.remove('active')
+            Loginpage.classList.remove('active')
+            sideNav.classList.remove('active')
+        }
+        let cartPage = document.querySelector('.cart');
+        document.getElementById('cartbtn').onclick = ()=>{
+            cartPage.classList.toggle('active')
+            searchform.classList.remove('active');
+            Loginpage.classList.remove('active')
+            sideNav.classList.remove('active')
+        }
+        let Loginpage = document.querySelector('.Loginpage');
+        document.getElementById('loginbtn').onclick = ()=>{
+            Loginpage.classList.toggle('active')
+            searchform.classList.remove('active');
+            cartPage.classList.remove('active')
+            sideNav.classList.remove('active')
+        }
+        let sideNav = document.querySelector('.sidenav');
+        document.getElementById('barsbtn').onclick = ()=>{
+            sideNav.classList.toggle('active')
+            searchform.classList.remove('active');
+            cartPage.classList.remove('active')
+            Loginpage.classList.remove('active')
+        }
+
+        window.onscroll = ()=>{
+            sideNav.classList.remove('active')
+             searchform.classList.remove('active');
+             Loginpage.classList.remove('active')
+             cartPage.classList.remove('active')
+        }
+        ///////
+// make a slider 
+const boxes = document.querySelectorAll('.boxes');
+        ///
+    </script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

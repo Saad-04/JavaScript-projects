@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill here</title>
+    <style>
+        *{margin: 0;
+        padding: 0;
+    box-sizing: border-box;}
+    body{overflow-x: hidden;}
+        .container{display: flex;
+        justify-content: center;
+    align-items: center;
+text-align: center;
+padding:7% 15%;
+background-image: url('img/Kitchen/vege.jpg');
+background-repeat: no-repeat;
+background-size:cover;
+background-color: black;
+background-position: center;
+width: 100vw;
+
+flex-direction: column;
+font-family: sans-serif;
+color: white;
+}
+.container p{font-weight: lighter;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif}
+.container h1{font-size: 3.5rem;
+padding-bottom: 20px;}
+ button{padding: 6px 15px ;
+    color: white;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+/* font-weight: bold; */
+background-color: rgb(238, 0, 4);}
+ button:hover{letter-spacing: 1.5px;
+transition: 0.6s;}
+.buttonview{width: 100%;
+text-align: center;}
+
+header{position: fixed;
+    text-align: center;
+
+padding: 10px 15%;
+transition: 0.7s;
+top: 0px;
+flex-direction: row;
+display: flex;
+width: 100vw;
+align-items: center;
+justify-content: center;}
+header img{width: 70px;
+height: 30px;}
+ul{display: flex;
+color: white;
+}
+header .option{position: absolute;
+right: 3px;
+top:3px;}
+header .option img{height: 15px;
+width: 15px;
+position: absolute;
+right: 15px;
+top:3px}
+.option{display: none;}
+.cross{display: none;}
+ul li a{color: white;}
+.navigation{
+    margin-left: auto;
+}
+@media screen and (max-width:500px) {
+    .about .abouttext p{font-size: xx-small;
+    }
+    .option{display: block;}
+    .contactimgside{display: none;}
+    .contact .contactbox{width: 70%;}
+    /* #header .navigation ul li a{font-size: xx-small}; */
+    #header .navigation ul{display: none;}
+}
+header a{text-decoration: none;}
+header h2{color:red}
+header h2 span{color:white;}
+
+ul li{list-style: none;
+font-family: sans-serif;
+padding: 0 2%;} 
+.sticky{background-color: #fff;
+    transition: 0.6s;
+box-shadow: 0 5px 20px rgba(0,0,0,0.05);}
+.sticky ul li a{color: black;}
+.sticky h2 span{color: black;}
+
+/* about section */
+#About{transition: 1s;}
+.about{display: flex;
+width: 100vw;
+transition: 1s;
+font-family: sans-serif;
+padding: 10%;}
+.about .abouttext{width: 50%;}
+
+
+.about .abouttext h2{color: red;
+font-size:xx-large}
+.about .abouttext h2 span{color: black;
+    font-weight: bolder;
+font-size: x-large;}
+.about .aboutimg{width: 50%;
+text-align: center;}
+.about .aboutimg img{width: 90%;
+height: 300px;}
+
+/* section three for menu */
+.menu{padding: 0 10%;
+    padding-bottom: 30px;
+    font-family: sans-serif;
+    background-color: rgba(249, 244, 244, 0.445);
+    width: 100vw;}
+    .title h2{
+        font-size: xx-large;
+    }
+    .title span{color: red;
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+        .title{width: 100vw;
+            font-family: sans-serif;
+            padding:0 10% 20px 10% ;
+            margin-top: 40px;
+text-align: center;}
+.dishes{display: flex;
+    flex-wrap: wrap;
+justify-content: center;
+align-items: center;}
+.dishes .box{height: 280px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+    margin: 17px;
+    font-weight: bolder;
+    width: 275px;
+    background-color: white;
+    padding: 15px;}
+    .dishes .box img{height: 90%;
+        width: 100%;}
+      .expert{padding: 5px 10%;
+            font-family: sans-serif;
+            font-weight: bolder;
+            width: 100vw;}
+      .chefs{display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+                align-items: center;}
+      .chef{height: 240px;
+         
+            padding: 10px;
+            margin: 10px;
+width: 220px;}
+.chef:hover{ box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+transition: 0.6s;}
+.chef img{height: 90%;
+width: 100%;}
+
+/* style for testimonials
+ */
+ .testimonials{
+    width: 100vw;
+    padding: 0 10%;
+    
+    background-image: url("img/Kitchen/vege.jpg");
+    background-repeat: no-repeat;
+background-size:cover;
+background-position: center;
+}
+.chefinfo{display: flex;
+    width: 100% auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.chefinfo .chefnamesbox{display: flex;
+    flex-direction: column;
+    padding: 14px;
+    font-family: sans-serif;
+    background-color: white;
+    margin: 4%;
+    align-items: center;
+    text-align: center;
+height: 200px auto;
+width: 230px;}
+.chefinfo .chefnamesbox:hover{ box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+transition: 0.6s;}
+.chefinfo .chefnamesbox a{text-decoration: none;
+color:red;
+font-weight: bolder;
+padding-top: 8px;}
+.chefinfo .chefnamesbox img{height: 70px;
+width: 70px;
+padding-bottom: 8px;
+border-radius: 50%;}
+/* section about */
+.contact{display: flex;
+width: 100vw;
+padding: 8%;}
+.contact .form{display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 4%;
+background-color: white;
+box-shadow: 4px 4px 15px  rgba(0,0,0,0.3);}
+.contact .form button{width: 70px;}
+.contact .form input{padding: 6px;
+border: 1px solid grey;
+width: 80%;margin: 3%;}
+.contact #contactbox{height: 300px auto;
+width: 50%;
+margin: 3%;}
+.contact .contactbox{height: 300px auto;
+width: 50%;
+margin: 3%;}
+.contact #contactbox img{height: 100%;
+width: 100%;}
+
+/* sidenavbar*/
+.sidenavbar{
+    position: absolute;
+    transition:1s;
+    background-color:rgba(255, 255, 255, 0.267)}
+    .minusleft{left: -200px;
+        transition: 0.6s;}
+        .sidenavbar .sidenavoption{
+    transition: 0.6s;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;}
+.sidenavbar .sidenavoption li a{text-decoration: none;
+color: white;
+font-size: smaller;}
+.sidenavbar .sidenavoption li a:hover{color: red;
+letter-spacing: 2px;
+transition: 0.6s;}
+
+
+    </style>
+</head>
+<body>
+    <div class="sidenavbar minusleft" id="sidenavbar" >
+        <ul class="sidenavoption">
+                <li><a href="#Food">Food</a></li>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Menu">Menu</a></li>
+                <li><a href="#Expert">Expert</a></li>
+                <li><a href="#Testimonials">Testimonials</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+    </div>
+    <div class="container" id="Home">
+        <h1>Always Choose Good</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi nihil praesentium non ut veritatis minus ipsum magnam exercitationem deserunt eligendi.l Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, sequi.
+        </p>
+        <button>OUR MENU</button>
+    </div>
+    <header id="header">
+        <a href=""><h2>F<span>ood</span></h2></a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#Food">Food</a></li>
+                <li><a href="#Home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Menu">Menu</a></li>
+                <li><a href="#Expert">Expert</a></li>
+                <li><a href="#Testimonials">Testimonials</a></li>
+                <li><a href="#Contact">Contact</a></li>
+            </ul>
+            
+        </nav>
+        <div class="option">
+                <img src="img/icons/cross (1).png" class="cross"cross id="cross" onclick="hideMenu()" alt="">
+                <img src="img/icons/option.png" class="option" onclick="showMenu()" id="option" alt="">
+            </div>
+    </header>
+    
+    <!-- About container -->
+    <div class="about" id="About">
+        <div class="abouttext">
+            <h2>A<span>bout Us</span></h2><p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium commodi nobis recusandae a iure aliquam sint animi, unde aliquid. Excepturi unde non ratione voluptate sunt quisquam nemo mollitia eveniet, suscipit dicta. Praesentium aliquid earum expedita itaque culpa sunt aperiam omnis tenetur labore, debitis, maxime quam repellat dolore mollitia cumque a blanditiis possimus adipisci, odit rerum qui? Fugit sed quasi obcaecati accusamus adipisci corporis quo expedita error in velit ipsa consequatur beatae totam blanditiis suscipit labore sapiente, eum tenetur quis voluptas iusto hic. Ad natus laudantium officia dolorum accusamus illum optio molestias nisi ex, laboriosam possimus velit odio corporis sint <br><br>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam excepturi cupiditate culpa et maiores sequi, vero rerum earum voluptate ratione consequuntur autem qui odit iure velit, unde ducimus, at vel quos tenetur harum distinctio fugiat est neque. Quaerat, repellat accusamus?
+            </p>
+        </div>
+        <div class="aboutimg"><img src="img/Kitchen/chef2.jpg" alt=""></div>
+    </div>
+
+    <!-- menu container -->
+    <div class="title"id="Menu" >
+        <h2>Our <span>M</span>enu</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, unde!</p>
+        </div>
+    <div class="menu" >
+
+        
+        <div class="dishes">
+            <div class="box"><img src="img/Kitchen/vege.jpg" alt="">Special Pasta</div>
+            <div class="box"><img src="img/Kitchen/soup.jpg" alt="">Special Soup</div>
+            <div class="box"><img src="img/Kitchen/lasagne.jpg" alt="">Special lasagne</div>
+            <div class="box"><img src="img/Kitchen/noogles.jpg" alt="">Special Noodles</div>
+            <div class="box"><img src="img/Kitchen/raita.jpg" alt="">Special Raita</div>
+            <div class="box"><img src="img/Kitchen/nuggets.jpg" alt="">Special Nuggets</div>
+        </div>
+        <div class="buttonview">
+            <button>View All</button>
+        </div>
+
+    </div>
+
+    <!-- section Expert -->
+      <div class="title" id="Expert"><h2>Our Kitchen <span>X</span>pert</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, unde!</p>
+        </div>
+    <div class="expert">
+      
+        <div class="chefs">
+            <div class="chef"><img src="img/Kitchen/chef1.jpg" alt="">Someone Famouse</div>
+            <div class="chef"><img src="img/Kitchen/chef3.jpg" alt="">Someone Famouse</div>
+            <div class="chef"><img src="img/Kitchen/chef4.jpg" alt="">Someone Famouse</div>
+            <div class="chef"><img src="img/Kitchen/chef5.jpg" alt="">Someone Famouse</div>
+        </div>
+    </div>
+    <!-- section Testimonials -->
+      <div class="title" id="Testimonials"><h2>They <span>S</span>aid About Us</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, unde!</p>
+        </div>
+    <div class="testimonials">
+      
+        <div class="chefinfo">
+            <div class="chefnamesbox">
+                <img src="img/Kitchen/chef5.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nobis voluptatibus ipsum, unde adipisci pariatur alias, iste repellendus natus et neque aspernatur doloribus velit officia quisquam repellat.</p>
+                <a href="">Someone Famouse</a>
+            </div>
+            <div class="chefnamesbox">
+                <img src="img/Kitchen/chef3.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nobis voluptatibus ipsum, unde adipisci pariatur alias, iste repellendus natus et neque aspernatur doloribus velit officia quisquam repellat.</p>
+                <a href="">Someone Famouse</a>
+            </div>
+            <div class="chefnamesbox">
+                <img src="img/Kitchen/chef4.jpg" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nobis voluptatibus ipsum, unde adipisci pariatur alias, iste repellendus natus et neque aspernatur doloribus velit officia quisquam repellat.</p>
+                <a href="">Someone Famouse</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- contact section -->
+    <div class="title" id="Contact"><h2> <span>C</span>ontact Us</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, unde!</p>
+        </div>
+<div class="contact" >
+    <div class="form contactbox">
+        <h2>Send Message</h2>
+        <input type="text" placeholder="Name" required>
+        <input type="text" placeholder="Email" required>
+        <input type="text" placeholder="Discription" required>
+        <button>SEND</button>
+    </div>
+        <div class="contactimgside" id="contactbox">
+            <img src="img/Kitchen/vege.jpg" alt="">
+        </div>
+</div>
+
+    <script>
+        window.addEventListener('scroll',function (){
+            const header = document.getElementById('header');
+            header.classList.toggle('sticky',window.scrollY > 0)
+        })
+        const option = document.getElementById('option')
+        const cross = document.getElementById('cross')
+        const sidenavbar = document.getElementById('sidenavbar')
+        function showMenu(){
+            sidenavbar.classList.remove('minusleft')
+            option.style.display = 'none';
+            cross.style.display = 'block';
+        }
+        function hideMenu(){
+            option.style.display = 'block';
+            sidenavbar.classList.add('minusleft')
+            
+        }
+    </script>
+</body>
+</html>

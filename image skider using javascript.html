@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <style>
+        *{margin: 0;
+        padding: 0;
+    box-sizing: border-box;}
+    body{background-color: #f3ff58;}
+    .img-container{width: 60%;
+    height: 60vh;
+background: url('img/background/5.jpg') center/cover fixed no-repeat;
+border: 0.5rem solid #fff700;
+border-radius: 0.5rem;
+position: relative;
+display: flex;
+align-items: center;
+margin: 4rem auto;
+box-shadow: 10px 10px 35px rgba(0,0,0,0.6);}
+.img-container .btn img{height: 30px;}
+.img-container .btn .rightimg{    height: 30px;
+  right: 0%;
+    /* display: inline; */
+    position: absolute;}
+    .img-container .btn .leftimg{position:absolute;
+    left: 0%;}
+
+    </style>
+</head>
+<body>
+    <div class="img-container">
+        <a href="" class="btn btn-left">
+            <img class="rightimg" src="img/icons/leftarrow.jpg" alt="" ></a>
+        <a href=""  class="btn btn-right">
+            <img  class="leftimg" src="img/icons/rightarrow.jpg" alt=""></a>
+    </div>
+    
+
+    <script>
+       function sliderChalao(){
+        const pictures = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+        ]
+
+        const buttons = document.querySelectorAll(".btn")
+        const imgDiv = document.getElementsByClassName("img=container")
+        let counter = 0;
+        let left = document.querySelector('.btn-left');
+        let right = document.querySelector('.btn-right');
+
+        
+            left.addEventListener('click',()=>{
+                    counter--
+                    if(counter < 0){
+                        counter = pictures.length - 1;
+                    }
+                      imgDiv.style.background = `url('background/${pictures[counter]}.jpg')`
+                })
+
+            right.addEventListener('click',()=>{
+                
+                    
+                    counter++
+                    if(counter > pictures.length - 1){
+                        counter = 0;
+                    }
+                     imgDiv.style.background = `url('background/${pictures[counter]}.jpg')`
+                })
+            
+        } 
+        sliderChalao()
+
+        /////////////////
+        
+        // buttons.forEach((button)=>{
+        //     button.addEventListener('click',function (e){
+        //         if(button.classList.contains('btn-left')){
+                   
+        //             counter--
+        //             if(counter < 0){
+        //                 counter = pictures.length - 1;
+        //             }
+        //               imgDiv.style.background = `url('img/background/${pictures[counter]}.JPG')`
+        //         }
+        //         if(button.classList.contains('btn-right')){
+                    
+        //             counter++
+        //             if(counter > pictures.length - 1){
+        //                 counter = 0;
+        //             }
+        //              imgDiv.style.background = `url('img/background/${pictures[counter]}.JPG')`
+        //         }
+        //     })
+        // })
+        
+    </script>
+</body>
+</html>
